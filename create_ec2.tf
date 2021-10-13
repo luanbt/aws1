@@ -1,3 +1,7 @@
+provider "aws" {
+  region     = "ap-southeast-1"
+}
+
 //create 
 resource "aws_vpc" "ownvpc" {
   cidr_block       = "192.168.0.0/16"

@@ -92,7 +92,7 @@ resource "aws_instance" "wordpress" {
   associate_public_ip_address = true
   subnet_id = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.mywebsecurity.id]
-  key_name = "mynewkey"
+  key_name = "privatekey1"
   availability_zone = "ap-southeast-1a"
   tags = {
     Name = "wordpress"
@@ -105,7 +105,7 @@ resource "aws_instance" "mysql" {
   instance_type = "t2.micro"
   subnet_id = aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.mywebsecurity.id]
-  key_name = "mynewkey"
+  key_name = "privatekey1"
   availability_zone = "ap-southeast-1b"
 
   tags = {

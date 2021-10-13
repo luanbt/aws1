@@ -87,7 +87,7 @@ resource "aws_security_group" "mywebsecurity" {
 
 // creating wordpress instance
 resource "aws_instance" "wordpress" {
-  ami           = "ami-000cbce3e1b899ebd"
+  ami           = "ami-082105f875acab993"
   instance_type = "t2.micro"
   associate_public_ip_address = true
   subnet_id = aws_subnet.public.id
@@ -101,7 +101,7 @@ resource "aws_instance" "wordpress" {
 
 // creating MySQL instance
 resource "aws_instance" "mysql" {
-  ami           = "ami-0019ac6129392a0f2"
+  ami           = "ami-082105f875acab993"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.mywebsecurity.id]

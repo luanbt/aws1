@@ -13,7 +13,7 @@ resource "aws_vpc" "ownvpc" {
 resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.ownvpc.id
   cidr_block = "192.168.0.0/24"
-  availability_zone = "ap-south-1a"
+  availability_zone = "ap-southeast-1a"
 }
 
 // private subnet
@@ -23,7 +23,7 @@ resource "aws_subnet" "private" {
 
 
     cidr_block = "192.168.1.0/24"
-    availability_zone = "ap-south-1b"
+    availability_zone = "ap-southeast-1b"
 }
 
 // create public facing internet gateway
@@ -93,7 +93,7 @@ resource "aws_instance" "wordpress" {
   subnet_id = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.mywebsecurity.id]
   key_name = "mynewkey"
-  availability_zone = "ap-south-1a"
+  availability_zone = "ap-southeast-1a"
   tags = {
     Name = "wordpress"
   }
@@ -106,7 +106,7 @@ resource "aws_instance" "mysql" {
   subnet_id = aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.mywebsecurity.id]
   key_name = "mynewkey"
-  availability_zone = "ap-south-1b"
+  availability_zone = "ap-southeast-1b"
 
   tags = {
     Name = "mysql"
